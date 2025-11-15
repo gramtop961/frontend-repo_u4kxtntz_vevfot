@@ -1,15 +1,19 @@
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import ThreeHero from './components/ThreeHero'
 import Section from './components/Section'
 import ProjectCard from './components/ProjectCard'
 import Footer from './components/Footer'
+import SceneCanvas from './components/three/SceneCanvas'
+import SkillsRing from './components/three/SkillsRing'
+import ExperienceTimeline from './components/three/ExperienceTimeline'
+import PaperPlane from './components/three/PaperPlane'
 
 export default function App() {
   const projects = [
     {
       title: 'Interactive 3D Portfolio',
-      description: 'A playful personal site powered by Spline and Framer Motion animations.',
-      tags: ['React', 'Spline', 'Framer Motion'],
+      description: 'A premium site powered by Three.js, R3F, and Framer Motion.',
+      tags: ['React', 'Three.js', 'R3F', 'Framer'],
       href: 'https://example.com'
     },
     {
@@ -27,27 +31,27 @@ export default function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-black text-emerald-50">
       <Navbar />
       <main>
-        <Hero />
+        <ThreeHero />
 
         <Section id="about" eyebrow="About" title="Hi, I’m Your Name">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-2 text-lg leading-relaxed text-gray-700">
+          <div className="grid md:grid-cols-3 gap-10">
+            <div className="md:col-span-2 text-lg leading-relaxed text-emerald-100/90">
               <p>
-                I’m a frontend engineer and product designer focused on building crisp, fast, and expressive interfaces. I love blending design and code to make experiences that feel alive.
+                I’m a frontend engineer and creative coder focused on expressive, performant interfaces. I blend React, WebGL, and motion design to craft experiences that feel alive.
               </p>
               <p className="mt-4">
-                My toolbox includes React, TypeScript, Tailwind, Framer Motion, and 3D tools like Spline. I care about accessibility, performance, and craft.
+                My toolbox: React, TypeScript, Tailwind, Three.js/React Three Fiber, and Framer Motion. I care about accessibility, performance, and polish.
               </p>
             </div>
-            <ul className="space-y-2 text-gray-700">
-              <li>• 6+ years shipping web products</li>
-              <li>• Motion and micro-interactions fan</li>
-              <li>• Design systems enthusiast</li>
-              <li>• Remote-friendly, async-first</li>
-            </ul>
+            <div className="rounded-2xl border border-emerald-900/40 bg-emerald-900/10 p-3">
+              <SceneCanvas controls="orbit" camera={{ position: [0, 0.8, 4], fov: 45 }} className="h-64 w-full rounded-xl overflow-hidden">
+                <SkillsRing />
+              </SceneCanvas>
+              <p className="mt-3 text-sm text-emerald-300/80">Rotating skills ring • Hover to explore</p>
+            </div>
           </div>
         </Section>
 
@@ -59,35 +63,47 @@ export default function App() {
           </div>
         </Section>
 
+        <Section id="experience" eyebrow="Background" title="Experience & Education">
+          <div className="grid md:grid-cols-2 gap-10">
+            <ExperienceTimeline />
+            <div className="rounded-2xl border border-emerald-900/40 bg-emerald-900/10 p-3">
+              <SceneCanvas controls="orbit" camera={{ position: [0, 0.8, 4], fov: 45 }} className="h-64 w-full rounded-xl overflow-hidden">
+                <PaperPlane />
+              </SceneCanvas>
+              <p className="mt-3 text-sm text-emerald-300/80">A playful paper plane hovering in 3D</p>
+            </div>
+          </div>
+        </Section>
+
         <Section id="contact" eyebrow="Contact" title="Let’s build something">
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="text-lg text-gray-700">
+            <div className="text-lg text-emerald-100/90">
               <p>
                 I’m open to freelance, collaborations, and full-time roles. Share a few details about your project and I’ll get back to you.
               </p>
               <p className="mt-4">
-                Prefer email? Reach me at <a href="mailto:you@example.com" className="underline">you@example.com</a>.
+                Prefer email? Reach me at <a href="mailto:you@example.com" className="underline decoration-emerald-500">you@example.com</a>.
               </p>
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className="bg-white border border-black/5 rounded-2xl p-6 shadow-sm">
+            <form onSubmit={(e) => e.preventDefault()} className="bg-emerald-950/40 border border-emerald-900/40 rounded-2xl p-6 shadow-sm">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm text-gray-600">Name</label>
-                  <input required className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900/10" />
+                  <label className="block text-sm text-emerald-300/80">Name</label>
+                  <input required className="mt-1 w-full rounded-md border border-emerald-800/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500/30" />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-600">Email</label>
-                  <input type="email" required className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900/10" />
+                  <label className="block text-sm text-emerald-300/80">Email</label>
+                  <input type="email" required className="mt-1 w-full rounded-md border border-emerald-800/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500/30" />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="block text-sm text-gray-600">Message</label>
-                  <textarea rows="4" required className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900/10" />
+                  <label className="block text-sm text-emerald-300/80">Message</label>
+                  <textarea rows="4" required className="mt-1 w-full rounded-md border border-emerald-800/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500/30" />
                 </div>
               </div>
-              <button className="mt-4 inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 rounded-md bg-gray-900 text-white hover:bg-black">
+              <button className="mt-4 inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 rounded-md bg-emerald-500 text-black font-semibold hover:bg-emerald-400">
                 Send message
               </button>
-              <p className="mt-2 text-xs text-gray-500">This demo form doesn’t send yet.</p>
+              <p className="mt-2 text-xs text-emerald-400/70">This demo form doesn’t send yet.</p>
             </form>
           </div>
         </Section>
